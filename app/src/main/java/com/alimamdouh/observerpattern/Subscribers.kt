@@ -1,3 +1,3 @@
 package com.alimamdouh.observerpattern
 
-data class Product(var name:String)
+data class Subscribers(var name:String)
