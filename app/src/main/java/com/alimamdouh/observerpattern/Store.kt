@@ -1,7 +1,7 @@
 package com.alimamdouh.observerpattern
 
 class Store : Subject {
-    private var pro: Product=Product("product")
+     var pro: Product=Product("product")
     private var availbality: String="state"
     private var lst: MutableList<Observer> = mutableListOf()
 

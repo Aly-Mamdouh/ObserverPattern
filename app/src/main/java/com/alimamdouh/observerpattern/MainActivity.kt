@@ -7,6 +7,10 @@ import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import androidx.room.Database
+import androidx.room.Room
+import com.alimamdouh.observerpattern.database.SubsDB
+import com.alimamdouh.observerpattern.database.Subscriber
 
 class MainActivity : AppCompatActivity() {
     lateinit var customer: Customer
@@ -19,7 +23,7 @@ class MainActivity : AppCompatActivity() {
         var btn_show = findViewById<Button>(R.id.display_subscriber)
         var add_product = findViewById<Button>(R.id.add_pro)
         var product_name = findViewById<EditText>(R.id.pro_name)
-
+        var db=SubsDB.getInstance(this.applicationContext)
         var store=Store()
         add_product.setOnClickListener {
             var productName= product_name.text.toString()
@@ -43,6 +47,8 @@ class MainActivity : AppCompatActivity() {
                 str.append((it as Customer).name).append(" ")
             }
             data = str.toString()
+            db.dao().insertSubs(Subscriber(0,store.pro.name,name))
+           // Log.i("pro",store.pro.name)
             str.clear()
         }
         btn_unSubs.setOnClickListener {
@@ -55,6 +61,7 @@ class MainActivity : AppCompatActivity() {
                 str.append((it as Customer).name).append(" ")
             }
             data = str.toString()
+            db.dao().deleteSubs(name.trim())
             str.clear()
         }
 

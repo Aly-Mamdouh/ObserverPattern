@@ -3,6 +3,7 @@ package com.alimamdouh.observerpattern
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.alimamdouh.observerpattern.database.Subscriber
 import com.alimamdouh.observerpattern.databinding.CustomLayoutBinding
 
 class RecAdapter(): RecyclerView.Adapter<RecAdapter.CVH>() {
